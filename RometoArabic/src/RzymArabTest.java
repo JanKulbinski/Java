@@ -1,6 +1,4 @@
 /**
-Program bazuje na założeniu, że istnieje tylko 1 poprawne odwzorowanie liczby
-z systemu arbskiego w rzymski i na odwrót 
 @RzymArab.java
 @Jan Kulbiński
 */
@@ -15,8 +13,6 @@ class RzymArabException extends Exception
 
 class RzymArab 
 {
- private static char[] MRliczby={'I','V','X','L','C','D','M'};
- private static int[] MAliczby={1,5,10,50,100,500,1000};
  private static String[] Rliczby= {"I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"};
  private static int[] Aliczby= {1,4,5,9,10,40,50,90,100,400,500,900,1000};
 
@@ -35,20 +31,21 @@ class RzymArab
     return wynik;
    }
 
- static int rzymtoarab(String wzorzec) throws RzymArabException
+ public static int rzymtoarab(String wzorzec) throws RzymArabException
 	{
     int dlugosc=wzorzec.length();
     int[] tab= new int[dlugosc]; // w tab beda liczby arabskie odpowiadajace literom z "wzorzec" 
     for(int i=0;i<dlugosc;i++) // uzupełnienie tab 
    	{
-   	 boolean czyjest= false; // zmienna okresla czy szukana litera z 'wzorzec' zostala odnalezona w MRliczby
-   	 for(int j=0; j<7;j++)
+   	 boolean czyjest= false; // zmienna okresla czy szukana litera z 'wzorzec' zostala odnalezona w Rliczby
+   	 for(int j=0; j<13;j=j+2)
    	 	{
-   	 	char wz=wzorzec.charAt(i); // if(wzorzec[i]==MRliczby[j])
-   	  	 if(wz==MRliczby[j])
+   	 	char wz=wzorzec.charAt(i); 
+   	 	char rl=Rliczby[j].charAt(0);
+   	  	 if(wz==rl) 	// if(wzorzec[i]==Rliczby[j])
    	  	 	{
    	  	 	 czyjest=true;
-   	  	 	 tab[i]=MAliczby[j];
+   	  	 	 tab[i]=Aliczby[j];
    	  	 	 break;
    	  	 	}
    	  	 }
@@ -73,7 +70,7 @@ class RzymArab
 
 };
 
-public class RzymArabTest
+public class RzymArabLepiej
 {
  public static void main(String arg[])
  {
