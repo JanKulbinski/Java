@@ -1,4 +1,6 @@
 /**
+Program bazuje na założeniu, że istnieje tylko 1 poprawne odwzorowanie liczby
+z systemu arbskiego w rzymski i na odwrót 
 @RzymArab.java
 @Jan Kulbiński
 */
