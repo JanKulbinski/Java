@@ -1,4 +1,4 @@
-Edytor grafczny umozliwiajacy tworzenie i edycje figur geometrycznych. 
+Edytor graficzny umozliwiajacy tworzenie i edycje figur geometrycznych. 
 
 Wybierając jeden z przycikow 'rectangle' lub 'elipse' mozna na bialym panelu 
 poprzez klikniecie i nastepnie przeciagniecie myszy tworzyc figury. 
