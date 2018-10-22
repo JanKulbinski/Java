@@ -24,7 +24,8 @@ public class Snake {
 /**
  * generates snake's head in random place on game panel
  */
-	private void addHead() {		
+	private void addHead() {	
+		
 		Random rand=new Random();
 		float x = (float)(rand.nextInt(36))*12;
 		float y = (float)(rand.nextInt(36))*12;

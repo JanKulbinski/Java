@@ -14,9 +14,9 @@ public class GameTest {
 		
 		JFrame frame;
 		GamePanel gamePanel;
-		
 		frame = new JFrame("SNAKE");		
-		frame.setSize(550,550);
+		frame.setSize(500,500);
+
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
