@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
     protected void paintComponent(Graphics g) {
 		
-		Graphics2D g2d= (Graphics2D) g;
+		Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d); 
         
         if(gameOver) {
@@ -76,8 +76,8 @@ public class GamePanel extends JPanel implements KeyListener {
  * creates new blueberry (which will be eaten by snake) in random place	
  */
 	public void newBlueberry() {
-		float x =(float)(rand.nextInt(36))*12;
-		float y =(float)(rand.nextInt(36))*12;
+		float x = (float)(rand.nextInt(36))*12;
+		float y = (float)(rand.nextInt(36))*12;
 
 		for(int i=0;i<snake.body.size();i++)
 			if(snake.body.get(i).contains((double) x, (double) y)) {
@@ -93,19 +93,19 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void running() {
 		while(true) {  
 				
-				float x=(float)snake.head.getX();
-				float y=(float)snake.head.getY();
+				float x = (float)snake.head.getX();
+				float y = (float)snake.head.getY();
 
-			    if(direction==Directions.LEFT) 		// moves snake's head
+			    if(direction == Directions.LEFT) 		// moves snake's head
 			    	snake.head.setRect(x-12, y, 12, 12);
 			    
-			    else if(direction==Directions.RIGHT) 
+			    else if(direction == Directions.RIGHT) 
 			    	snake.head.setRect(x+12, y, 12, 12);
 			    
-			    else if(direction==Directions.UP)
+			    else if(direction == Directions.UP)
 			    	snake.head.setRect(x, y-12, 12, 12);
 
-			    else if(direction==Directions.DOWN) 
+			    else if(direction == Directions.DOWN) 
 					snake.head.setRect(x, y+12, 12, 12);
 			    
 			    if(snake.length>1) {				// moves snake's body
@@ -127,27 +127,27 @@ public class GamePanel extends JPanel implements KeyListener {
 			    		lastY= (float)((snake.body.get(snake.body.size()-1)).getY());
 			    	} 
 			    	
-			    	if(direction==Directions.LEFT) {
+			    	if(direction == Directions.LEFT) {
 			    		snake.addBody(snake.body.size()-1,lastX+12, lastY);
 			    	}
 
-			    	else if(direction==Directions.RIGHT) {
+			    	else if(direction == Directions.RIGHT) {
 			    		snake.addBody(snake.body.size()-1,lastX-12, lastY);
 			    	}
 
-			    	else if(direction==Directions.UP) {
+			    	else if(direction == Directions.UP) {
 			    		snake.addBody(snake.body.size()-1,lastX, lastY+12);
 			    	}
 
-			    	else if (direction==Directions.DOWN) {
+			    	else if (direction == Directions.DOWN) {
 			    		snake.addBody(snake.body.size()-1,lastX, lastY-12);
 			    	}
 			    	
 			    	newBlueberry();
 			    }
 			    
-			    int xHead=(int)snake.head.getCenterX();
-			    int yHead=(int)snake.head.getCenterY();
+			    int xHead = (int)snake.head.getCenterX();
+			    int yHead = (int)snake.head.getCenterY();
 			    
 			    if(!contains(xHead,yHead)) {	//checks if snake's head is beyond game's panel and teleports it
 			    	if(xHead<0)
@@ -161,7 +161,7 @@ public class GamePanel extends JPanel implements KeyListener {
 			    }
 			    
 			   if(bodyEaten(xHead,yHead)) {		
-				   gameOver=true;
+				   gameOver = true;
 				   repaint();
 				   break;
 			   }
@@ -194,7 +194,7 @@ public class GamePanel extends JPanel implements KeyListener {
  */
 	
 	public void keyPressed(KeyEvent e) {
-	    int key=e.getKeyCode();		
+	    int key = e.getKeyCode();		
 	    
 	    if(key == KeyEvent.VK_LEFT && direction!=Directions.RIGHT)
 	    	direction=Directions.LEFT;
