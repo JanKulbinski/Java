@@ -4,12 +4,89 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>740</x>
-      <y>80</y>
-      <w>100</w>
-      <h>30</h>
+      <x>790</x>
+      <y>160</y>
+      <w>250</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
+    <panel_attributes>Snake 
+--
+~ body: ArrayList&lt;Rectangle2D.Float&gt; 
+~ head: Rectangle2D.Float 
+~ length: length
+
+--
++ Snake()
+- addHead()	
++ addBody()
++ removeBody()
+
+</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>140</y>
+      <w>210</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>GamePanel
+--
+- snake: Snake
+- blueberry: Rectangle2D.Float 
+- direction: Directions 
+- rand: Random 
+- gameOver: boolean
+--
++ GamePanel()
+# paintComponent()
++ newBlueberry()
++ running()
++ bodyEaten()	
++ keyPressed() </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>120</y>
+      <w>240</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+creates &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>120</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>GameTest
+--
++ main()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>160</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+moves and displays &gt;</panel_attributes>
+    <additional_attributes>10.0;30.0;200.0;20.0</additional_attributes>
   </element>
 </diagram>
