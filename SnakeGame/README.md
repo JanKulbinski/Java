@@ -5,3 +5,5 @@ The player loses when the snake runs into itself.
 The goal is to eat as many items as possible by running into them with the head of the snake.
 Each item eaten makes the snake longer, so controlling is progressively more difficult.
 It is possible to go through the boards of the plane
+
+You can find JAR in 'target' directory.
