@@ -168,7 +168,7 @@ public class GamePanel extends JPanel implements KeyListener {
 			    	
 			   repaint();
 			   try {
-				   TimeUnit.MILLISECONDS.sleep(100);
+				   TimeUnit.MILLISECONDS.sleep(10);
 				} 
 			   catch (InterruptedException e) {
 					e.printStackTrace();	
