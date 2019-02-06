@@ -1,13 +1,13 @@
-Program tworzy symulacje, wykorzystujac wielowatkowosc.
+The program creates simulation using multithreading.
 
-Symulacja: 
-Plansza do symulacji jest prostokątem w na h pol. Rozmiar planszy ( width i height ),
-szybkosc dzialnia (v- velocity) i prawdopodobienstwo (p- probability) zmiany koloru sa 
-podane jako parametry. Poczatkowe kolory pol sa losowe.
-Kazde pole jest watkiem, ktory co pewien czas (opoznienie jest równe losowo wybranej
-liczbie milisekund z przedzialu [0.5v, 1.5v] ) wykonuje nastepujace czynnosci:
-  -z prawdopodobienstwem p zmienia swój kolor na losowy;
-  -z prawdopodobienstwem 1 − p sprawdza kolory swoich czterech sasiadów (plansza
-  jest traktowana jako dwuwymiarowy torus) i przyjmuje jako kolor sredni z nich.
+Simulation approach and assumptions:
+The board for simulation is a rectangle that consists of smaller rectangles. Board's size (width and height), which
+determines number of columns and rows, velocity (v) and probability (p) of changing color are
+entered by user as parameters. The initial colors of rectangles are random.
+Each field is a thread that every now and then (the delay is equal to a random
+number of milliseconds in the range from 0.5*v to 1.5*v) performs the following actions:
+   - with probability p, change its color for random;
+   - with probability 1 - p checks the colors of its four neighbors (board
+   it is treated as a two-dimensional torus) and changes it's color for a medium color of them.
 
-Aplikacja moze zmieniac rozmiar. 
+The application can change its size.
