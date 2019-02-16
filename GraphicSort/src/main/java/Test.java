@@ -15,9 +15,14 @@ import javax.swing.event.ChangeListener;
 
 public class Test {
 	
+	public enum State {On, Off};
+	
+	private static State state;
 	private static Sorter sorter;
 	private static int numberOfElements = 20;
 	private static Semaphore semaphore;
+	
+	
 	
 	public static void main(String args[]) {
 		
@@ -28,7 +33,10 @@ public class Test {
 			e1.printStackTrace();
 		}
 		
+		state = State.Off;
+		
 		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		build(frame);
 		
 		Thread thread = new Thread(sorter);
@@ -50,7 +58,10 @@ public class Test {
 		run.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				semaphore.release();
+				if(state != State.On) {
+					semaphore.release();
+					state = State.On;
+				}
 			}
 
 		});
@@ -58,10 +69,13 @@ public class Test {
 		stop.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				try {
-					semaphore.acquire();
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
+				if(state == State.On) {
+					try {
+						state = State.Off;
+						semaphore.acquire();
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
