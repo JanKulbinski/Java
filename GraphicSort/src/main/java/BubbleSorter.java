@@ -14,7 +14,7 @@ public class BubbleSorter extends Sorter {
 					semaphore.acquire();
 					graph.setCompared(j,j+1);
 					graph.repaint();
-					Thread.sleep(300);
+					Thread.sleep(delay);
 					semaphore.release();
 				} catch (InterruptedException e) {
 					e.printStackTrace();

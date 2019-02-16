@@ -7,7 +7,11 @@ import java.util.concurrent.Semaphore;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class Test {
 	
@@ -62,12 +66,24 @@ public class Test {
 			}
 		});
 		
+		Color buttonsPanelColor = new Color(64, 106, 173);
+		JSlider slider = new JSlider(JSlider.HORIZONTAL,1,20,3);
+		slider.setBackground(buttonsPanelColor);
+		slider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				sorter.setDelay(slider.getValue()*100);
+			}
+		});
+		
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new FlowLayout());
 		buttons.setSize(400,400);
-		buttons.setBackground(new Color(64, 106, 173));
+		buttons.setBackground(buttonsPanelColor);
+		buttons.add(new JLabel("Speed"));
+		buttons.add(slider);
 		buttons.add(run);
 		buttons.add(stop);
+		
 		
 		MyJPanel graph = new MyJPanel(numberOfElements);
 		
